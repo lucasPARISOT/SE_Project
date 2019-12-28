@@ -1,36 +1,5 @@
 // Version 3
-#include <stdio.h>
-#include <sys/types.h>
-#include <string.h>
-#include "share.h"
-
-#define NBPRIORITY 10
-
-typedef struct elemProcess
-{
-    int priority;
-    int execTime;
-    pid_t pid;
-} elemProcess;
-
-typedef struct AllocationTable
-{
-    // Lists of priority, containing process.
-    elemProcess priority0[SIZEARRAY];
-    elemProcess priority1[SIZEARRAY];
-    elemProcess priority2[SIZEARRAY];
-    elemProcess priority3[SIZEARRAY];
-    elemProcess priority4[SIZEARRAY];
-    elemProcess priority5[SIZEARRAY];
-    elemProcess priority6[SIZEARRAY];
-    elemProcess priority7[SIZEARRAY];
-    elemProcess priority8[SIZEARRAY];
-    elemProcess priority9[SIZEARRAY];
-    elemProcess priority10[SIZEARRAY];
-
-    // Percentage of execution for every priority list.
-    int execPercentage[11];
-} AllocationTable;
+#include "tableAlloc.h"
 
 AllocationTable initAlloc(AllocationTable allocationTable)
 {
@@ -39,7 +8,7 @@ AllocationTable initAlloc(AllocationTable allocationTable)
     memset(&allocationTable, 0, sizeof(AllocationTable));
 
     // Init percentage
-	allocationTable.execPercentage[0]  = EXECPERCENTAGE0;
+    allocationTable.execPercentage[0]  = EXECPERCENTAGE0;
     allocationTable.execPercentage[1]  = EXECPERCENTAGE1;
     allocationTable.execPercentage[2]  = EXECPERCENTAGE2;
     allocationTable.execPercentage[3]  = EXECPERCENTAGE3;
@@ -67,37 +36,4 @@ AllocationTable initAlloc(AllocationTable allocationTable)
 
     return allocationTable;
 
-}
-
-int main(int argc, char const *argv[])
-{
-
-    AllocationTable allocationTable;
-
-    allocationTable = initAlloc(allocationTable);
-
-    /*			//TEST ALLOC PERCENTAGE SUCCESS -> NBPRIORITY=10
-    printf("size %d\n", NBPRIORITY);
-    for (int i = 0; i <= NBPRIORITY; ++i)
-    {
-        printf("%d   ", allocationTable.execPercentage[i]);
-        printf("i=%d\n",i);
-    }
-    */
-
-    /* 			//TEST ALLOC PRIORITY SUCCESS > NBPRIORITY=10
-    printf("element priority 0: %d\n", allocationTable.priority0->priority);
-    printf("element priority 1: %d\n", allocationTable.priority1->priority);
-    printf("element priority 2: %d\n", allocationTable.priority2->priority);
-    printf("element priority 3: %d\n", allocationTable.priority3->priority);
-    printf("element priority 4: %d\n", allocationTable.priority4->priority);
-    printf("element priority 5: %d\n", allocationTable.priority5->priority);
-    printf("element priority 6: %d\n", allocationTable.priority6->priority);
-    printf("element priority 7: %d\n", allocationTable.priority7->priority);
-    printf("element priority 8: %d\n", allocationTable.priority8->priority);
-    printf("element priority 9: %d\n", allocationTable.priority9->priority);
-    printf("element priority 10: %d\n", allocationTable.priority10->priority);
-    */
-
-    return 0;
 }

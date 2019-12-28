@@ -1,0 +1,4 @@
+gcc -c main.c
+gcc -c TableAlloc.c
+gcc -o exec main.o TableAlloc.o
+rm -f *.o
