@@ -1,4 +1,5 @@
 gcc -c main.c
 gcc -c TableAlloc.c
-gcc -o exec main.o TableAlloc.o
+gcc -c Processus.c
+gcc -o exec main.o TableAlloc.o Processus.o
 rm -f *.o

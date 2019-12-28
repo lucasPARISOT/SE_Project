@@ -1,3 +1,5 @@
+#ifndef SHARE_H_INCLUDED
+
 #define SHARE_H_INCLUDED
 
 #define SIZEARRAY 100
@@ -13,3 +15,5 @@
 #define EXECPERCENTAGE8 2
 #define EXECPERCENTAGE9 1
 #define EXECPERCENTAGE10 100
+
+#endif

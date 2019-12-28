@@ -1,4 +1,3 @@
-// Version 3
 #include "tableAlloc.h"
 
 AllocationTable initAlloc(AllocationTable allocationTable)

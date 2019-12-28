@@ -1,14 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
+#include <time.h>
 #include "share.h"
 #include "tableAlloc.h"
+#include "processus.h"
 
 int main(int argc, char const *argv[])
 {
 
     AllocationTable allocationTable;
     allocationTable = initAlloc(allocationTable);
+    
+    srand(time(NULL));
+    int random = rand()%20+1;
+
+    for (int j = 0; j < 5; ++j)
+    {
+
+        ElemProcess elementTest;
+        elementTest = initElement(elementTest);
+
+        int boolean = 1;
+        for(int i=0; i<SIZEARRAY; i++)
+        {
+            if (allocationTable.priority3[i].pid==0 && boolean==1)
+            {
+                allocationTable.priority3[i] = elementTest;
+                boolean = 0;
+            }
+        }
+        fprintf(stderr, "elementTest execTime: %d\n", allocationTable.priority3[j].execTime);
+    }
+
+    
+    
 
     /*			//TEST ALLOC PERCENTAGE SUCCESS -> NBPRIORITY=10
     printf("size %d\n", NBPRIORITY);
