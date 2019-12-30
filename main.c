@@ -4,21 +4,40 @@
 #include <string.h>
 
 #include "share.h"
+#include "signal.h"
 #include "tableAlloc.h"
 #include "processus.h"
 
 int main(int argc, char const *argv[])
 {
 
+    initSignals();
+
     AllocationTable allocationTable = initAlloc(allocationTable);
 
     allocationTable = createNbProcess(allocationTable,4);
 
-    
+    while(1) // Algorithme Round Robin
+    {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /*
     for (int i = 0; i < 11; ++i)
     {
         nbProcessusPriority(allocationTable,i);
     }
+    */
     
     /*          // TEST PRIORITE PID
     printf("\nTEST PRIORITY 0\n\n");
@@ -51,5 +70,5 @@ int main(int argc, char const *argv[])
     printf("element priority 10: %d\n", allocationTable.priority10->priority);
     */
 
-    return 0;
+    exit(EXIT_SUCCESS);
 }

@@ -1,5 +1,6 @@
 gcc -c main.c
+gcc -c Signal.c
 gcc -c TableAlloc.c
 gcc -c Processus.c
-gcc -o exec main.o TableAlloc.o Processus.o
+gcc -o exec main.o Signal.o TableAlloc.o Processus.o
 rm -f *.o
