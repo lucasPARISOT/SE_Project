@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
-#include <time.h>
 
 #include "share.h"
 #include "tableAlloc.h"
@@ -11,19 +10,31 @@
 int main(int argc, char const *argv[])
 {
 
-    AllocationTable allocationTable;
-    allocationTable = initAlloc(allocationTable);
+    AllocationTable allocationTable = initAlloc(allocationTable);
 
-    srand(time(NULL));
-
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < NBPROCESSUS; ++i)
     {
-        ElemProcess elementTest;
-        elementTest = initElement(elementTest);
-        addElement(elementTest,allocationTable);
-    }   
+        ElemProcess elementTest = initElement(elementTest);
+        allocationTable = addElement(elementTest,allocationTable);
+    }
 
+    printf("initElement & addElement successful\n");
     
+    printf("\nTEST PRIORITY 0\n\n");
+
+    for(int i = 0; i < 10; ++i)
+    {
+        printf("i = %d pid: %d\n", i, allocationTable.priority0[i].pid);
+    }
+
+    int compteur = 0;
+    for (int i = 0; i < SIZEARRAY; ++i)
+    {
+        if(allocationTable.priority0[i].pid != -1){
+            compteur++;
+        }
+    }
+    printf("Element dans la priorite 0: %d\n", NBPROCESSUS-compteur);
     
 
     /*			//TEST ALLOC PERCENTAGE SUCCESS -> NBPRIORITY=10

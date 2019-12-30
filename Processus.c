@@ -3,19 +3,37 @@
 ElemProcess initElement(ElemProcess element)
 {
 
-    memset(&element, -1, sizeof(ElemProcess));
-    element.priority = rand()%11;
-    element.execTime = rand()%20+1;
+	pid_t pid = fork();
 
-    // printf("initElement successful\n");
+	srand(time(NULL) + 96*pid); // Seed
+
+    if(pid == -1)
+    {
+        perror("fork");
+    }
+    if(pid == 0){ // FILS
+    	exit(0);
+    }
+    else { // PERE	    
+
+	    memset(&element, -1, sizeof(ElemProcess));
+	    element.priority = rand()%11;
+	    element.execTime = rand()%20+1;
+	    element.pid = pid;  	
+    }
+    wait(NULL);
+
+
+	// printf("initElement successful\n");  
 
     return element;
 }
 
-void addElement(ElemProcess elementTest,AllocationTable allocationTable)
+AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTable)
 {
 	int boolean = 1;
 
+	//printf("priority: %d\n", elementTest.priority);
     switch(elementTest.priority)
     {
         case 0:
@@ -162,4 +180,6 @@ void addElement(ElemProcess elementTest,AllocationTable allocationTable)
             }
             break;         
     }
+
+    return allocationTable;
 }
