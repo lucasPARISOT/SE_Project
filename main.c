@@ -20,6 +20,10 @@ int main(int argc, char const *argv[])
     while(1) // Algorithme Round Robin
     {
 
+        // ALGO
+
+        sleep(QUANTUM);
+
     }
 
 

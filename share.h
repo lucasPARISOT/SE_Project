@@ -2,8 +2,10 @@
 
 #define SHARE_H_INCLUDED
 
+#define QUANTUM 1
+
 #define SIZEARRAY 100
-#define NBPROCESSUS 53
+#define NBPROCESSUS 57
 
 #define EXECPERCENTAGE0 10
 #define EXECPERCENTAGE1 9
