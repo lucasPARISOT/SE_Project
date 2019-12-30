@@ -38,3 +38,145 @@ AllocationTable initAlloc(AllocationTable allocationTable)
     return allocationTable;
 
 }
+
+AllocationTable createProcess(AllocationTable allocationTable)
+{
+    for (int i = 0; i < NBPROCESSUS; ++i)
+    {
+        ElemProcess elementTest = initElement(elementTest);
+        allocationTable = addElement(elementTest,allocationTable);
+    }
+    printf("initElement & addElement successful\n\n");
+    return allocationTable;
+}
+
+AllocationTable createNbProcess(AllocationTable allocationTable, int nbProcess)
+{
+    for (int i = 0; i < nbProcess; ++i)
+    {
+        ElemProcess elementTest = initElement(elementTest);
+        allocationTable = addElement(elementTest,allocationTable);
+    }
+    printf("initElement & addElement successful\n\n");
+    return allocationTable;
+}
+
+void nbProcessusPriority(AllocationTable allocationTable, int priority)
+{
+    int compteur = 0;
+    switch(priority)
+    {
+
+        case 0:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority0[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 1:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority1[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 2:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority2[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 3:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority3[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+    
+        case 4:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority4[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+        
+        case 5:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority5[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+        
+        case 6:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority6[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 7:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority7[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 8:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority8[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 9:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority9[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+
+        case 10:
+
+            for (int i = 0; i < SIZEARRAY; ++i)
+            {
+                if(allocationTable.priority10[i].pid != -1){
+                    compteur++;
+                }
+            }
+            break;
+    }
+
+    printf("Processus actifs dans la priorite %d: %d\n",priority, compteur);
+}
