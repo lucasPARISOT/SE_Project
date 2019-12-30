@@ -4,7 +4,7 @@ AllocationTable initAlloc(AllocationTable allocationTable)
 {
 
     // Init the entire struct to 0.
-    memset(&allocationTable, 0, sizeof(AllocationTable));
+    memset(&allocationTable, -1, sizeof(AllocationTable));
 
     // Init percentage
     allocationTable.execPercentage[0]  = EXECPERCENTAGE0;
@@ -32,6 +32,8 @@ AllocationTable initAlloc(AllocationTable allocationTable)
     allocationTable.priority8->priority  = 8;
     allocationTable.priority9->priority  = 9;
     allocationTable.priority10->priority = 10;
+
+    printf("\ninitAlloc successful\n\n");
 
     return allocationTable;
 

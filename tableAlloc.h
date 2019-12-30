@@ -2,6 +2,8 @@
 
 #define TABLEALLOC_H_INCLUDED
 #include <string.h>
+#include <stdio.h>
+
 #include "allocationTable.h"
 
 #define NBPRIORITY 10
