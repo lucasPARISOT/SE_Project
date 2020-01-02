@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 
     AllocationTable allocationTable = initAlloc(allocationTable);
 
-    allocationTable = createNbProcess(allocationTable,1,100);
+    allocationTable = createNbProcess(allocationTable,1,10);
 
     //printf("quantumDate: %d\n", allocationTable.priority0[0].quantumDate);
 

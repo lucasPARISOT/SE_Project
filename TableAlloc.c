@@ -47,7 +47,7 @@ AllocationTable createProcess(AllocationTable allocationTable)
         elementTest.quantumDate = 0;
         allocationTable = addElement(elementTest,allocationTable);
     }
-    printf("initElement & addElement successful\n\n");
+    printf("\ninitElement & addElement successful\n\n");
     return allocationTable;
 }
 
@@ -59,11 +59,11 @@ AllocationTable createNbProcess(AllocationTable allocationTable, int quantumDate
         elementTest.quantumDate = quantumDate;
         allocationTable = addElement(elementTest,allocationTable);
     }
-    printf("initElement & addElement successful\n\n");
+    printf("\ninitElement & addElement successful\n\n");
     return allocationTable;
 }
 
-void nbProcessusPriority(AllocationTable allocationTable, int priority)
+int nbProcessusPriority(AllocationTable allocationTable, int priority)
 {
     int compteur = 0;
     switch(priority)
@@ -77,6 +77,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 1:
@@ -87,6 +88,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 2:
@@ -97,6 +99,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 3:
@@ -107,6 +110,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
     
         case 4:
@@ -117,6 +121,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
         
         case 5:
@@ -127,6 +132,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
         
         case 6:
@@ -137,6 +143,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 7:
@@ -147,6 +154,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 8:
@@ -157,6 +165,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 9:
@@ -167,6 +176,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
 
         case 10:
@@ -177,6 +187,7 @@ void nbProcessusPriority(AllocationTable allocationTable, int priority)
                     compteur++;
                 }
             }
+            return compteur;
             break;
     }
 
