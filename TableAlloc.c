@@ -44,17 +44,19 @@ AllocationTable createProcess(AllocationTable allocationTable)
     for (int i = 0; i < NBPROCESSUS; ++i)
     {
         ElemProcess elementTest = initElement(elementTest);
+        elementTest.quantumDate = 0;
         allocationTable = addElement(elementTest,allocationTable);
     }
     printf("initElement & addElement successful\n\n");
     return allocationTable;
 }
 
-AllocationTable createNbProcess(AllocationTable allocationTable, int nbProcess)
+AllocationTable createNbProcess(AllocationTable allocationTable, int quantumDate, int nbProcess)
 {
     for (int i = 0; i < nbProcess; ++i)
     {
         ElemProcess elementTest = initElement(elementTest);
+        elementTest.quantumDate = quantumDate;
         allocationTable = addElement(elementTest,allocationTable);
     }
     printf("initElement & addElement successful\n\n");

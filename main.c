@@ -15,7 +15,9 @@ int main(int argc, char const *argv[])
 
     AllocationTable allocationTable = initAlloc(allocationTable);
 
-    allocationTable = createNbProcess(allocationTable,4);
+    allocationTable = createNbProcess(allocationTable,1,100);
+
+    //printf("quantumDate: %d\n", allocationTable.priority0[0].quantumDate);
 
     while(1) // Algorithme Round Robin
     {
