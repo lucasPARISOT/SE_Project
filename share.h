@@ -2,10 +2,12 @@
 
 #define SHARE_H_INCLUDED
 
-#define QUANTUM 5
+#define QUANTUM 1
 
-#define SIZEARRAY 10
-#define NBPROCESSUS 50
+#define SEED 654321
+
+#define SIZEARRAY 100
+#define NBPROCESSUS 10
 
 #define EXECPERCENTAGE0 12
 #define EXECPERCENTAGE1 11
@@ -18,5 +20,8 @@
 #define EXECPERCENTAGE8 8
 #define EXECPERCENTAGE9 8
 #define EXECPERCENTAGE10 7
+
+#define MAX_EXEC_T 20
+#define PROBA_NEW_PROC 90
 
 #endif

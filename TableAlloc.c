@@ -367,7 +367,7 @@ void algorithm(AllocationTable allocationTable)
             printf("\n=============");
             int value = 0;
             read(fd[0], &value, sizeof(value));
-            if(value > 80){
+            if(value > PROBA_NEW_PROC){
                 allocationTable = createNbProcess(allocationTable, quantumDate, 1);
                 printf("New processus created!\n");
             }                    

@@ -5,20 +5,20 @@ ElemProcess initElement(ElemProcess element)
 
 	pid_t pid = fork();
 
-	srand(time(NULL) + 96*pid); // Seed
+	srand(time(NULL) + SEED*pid); // Seed
 
     if(pid == -1)
     {
         perror("fork");
     }
-    if(pid == 0){ // FILS
+    if(pid == 0){ // CHILD
     	exit(0);
     }
-    else { // PERE	    
+    else { // PARENT	    
 
 	    memset(&element, -1, sizeof(ElemProcess));
 	    element.priority = rand()%11;
-	    element.execTime = rand()%20+1;
+	    element.execTime = rand()%MAX_EXEC_T+1;
 	    element.pid = pid;  	
     }
     wait(NULL);
