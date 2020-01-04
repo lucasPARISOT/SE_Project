@@ -14,5 +14,6 @@ AllocationTable createProcess(AllocationTable allocationTable);
 AllocationTable createNbProcess(AllocationTable allocationTable, int quantumDate, int nbProcess);
 int nbProcessusPriority(AllocationTable allocationTable, int priority);
 int priorityArray(AllocationTable allocationTable);
+void checkingPercentage();
 
 #endif

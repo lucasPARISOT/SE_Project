@@ -299,3 +299,15 @@ int priorityArray(AllocationTable allocationTable)
     return file;
 
 }
+
+void checkingPercentage()
+{
+    int sum = EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4 + EXECPERCENTAGE5 + EXECPERCENTAGE6
+     + EXECPERCENTAGE7 + EXECPERCENTAGE8 + EXECPERCENTAGE9 + EXECPERCENTAGE10;
+    if (sum != 100)
+    {
+        printf("\nPercentage incorect, sum is: %d\n", sum);
+        exit(-1);
+    }
+}

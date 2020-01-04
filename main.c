@@ -11,6 +11,8 @@
 int main(int argc, char const *argv[])
 {
 
+    checkingPercentage();
+
     initSignals();
 
     AllocationTable allocationTable = initAlloc(allocationTable);
