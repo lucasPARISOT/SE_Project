@@ -193,3 +193,109 @@ int nbProcessusPriority(AllocationTable allocationTable, int priority)
 
     printf("Processus actifs dans la priorite %d: %d\n",priority, compteur);
 }
+
+int priorityArray(AllocationTable allocationTable)
+{
+    srand(time(NULL));
+    int file;
+
+    // nb entre 0 et 100
+    int fileRand = rand()%101;
+
+    if (fileRand < EXECPERCENTAGE0)
+    {
+        file = 0;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1)
+    {
+        file = 1;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2)
+    {
+        file = 2;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3)
+    {
+        file = 3;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4)
+    {
+        file = 4;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4 + EXECPERCENTAGE5)
+    {
+        file = 5;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4 + EXECPERCENTAGE5 + EXECPERCENTAGE6)
+    {
+        file = 6;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4 + EXECPERCENTAGE5 + EXECPERCENTAGE6
+     + EXECPERCENTAGE7)
+    {
+        file = 7;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4 + EXECPERCENTAGE5 + EXECPERCENTAGE6
+     + EXECPERCENTAGE7 + EXECPERCENTAGE8)
+    {
+        file = 8;
+    }
+    else if (fileRand < EXECPERCENTAGE0 + EXECPERCENTAGE1 + EXECPERCENTAGE2
+     + EXECPERCENTAGE3 + EXECPERCENTAGE4 + EXECPERCENTAGE5 + EXECPERCENTAGE6
+     + EXECPERCENTAGE7 + EXECPERCENTAGE8 + EXECPERCENTAGE9)
+    {
+        file = 9;
+    }
+    else
+    {
+        file = 10;
+    }
+
+    printf("\n=============\n");
+    printf("\ninitial file: %d\n\n", file);
+
+    int sucess = 0;
+    int initialFile = file;
+    for (initialFile; initialFile < 11; ++initialFile)
+    {
+        if(nbProcessusPriority(allocationTable,initialFile)==0)
+        {
+            file++;
+            printf("file++!\n");
+            if (file == 11)
+            {
+                file = 0;
+            }
+        }
+        else 
+        {
+            sucess = 1;
+            break;
+        }
+    }
+    if(sucess == 0)
+    {
+        for (int z=0; z < initialFile; ++z)
+        {
+            if(nbProcessusPriority(allocationTable,z)==0)
+            {
+                file++;
+                printf("file++!\n");
+            }
+            else{
+                break;
+            }
+        }
+    }
+
+
+    printf("\nfinal file: %d\n", file);
+    return file;
+
+}
