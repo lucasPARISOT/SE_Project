@@ -270,7 +270,7 @@ int priorityArray(AllocationTable allocationTable)
             printf("file++!\n");
             if (file == 11)
             {
-                file = 0;
+                file = 1;
             }
         }
         else 
