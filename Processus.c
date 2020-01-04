@@ -29,6 +29,13 @@ ElemProcess initElement(ElemProcess element)
     return element;
 }
 
+ElemProcess resetElement()
+{
+    ElemProcess element;
+    memset(&element, -1, sizeof(ElemProcess));
+    return element;
+}
+
 AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTable)
 {
 	int boolean = 1;

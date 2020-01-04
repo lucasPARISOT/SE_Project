@@ -12,38 +12,21 @@ int main(int argc, char const *argv[])
 {
 
     checkingPercentage();
-
     initSignals();
 
+    
+
     AllocationTable allocationTable = initAlloc(allocationTable);
-
-    allocationTable = createNbProcess(allocationTable,1,10);
-    //allocationTable.priority5[0].pid = 15674;
-
-    //printf("quantumDate: %d\n", allocationTable.priority0[0].quantumDate);
-
-    // Algorithme
-    while(1)
-    {
-
-        
-        int file = priorityArray(allocationTable);
-
-        sleep(QUANTUM);
-
-    }
+    allocationTable = createProcess(allocationTable);
 
 
+    algorithm(allocationTable);
+    
+
+    
 
 
-
-
-
-
-
-
-
-    /*
+    /*           // TEST PRIORITY ELEMENTS 
     for (int i = 0; i < 11; ++i)
     {
         nbProcessusPriority(allocationTable,i);

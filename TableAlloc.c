@@ -196,6 +196,13 @@ int nbProcessusPriority(AllocationTable allocationTable, int priority)
 
 int priorityArray(AllocationTable allocationTable)
 {
+
+    if(isTableEmpty(allocationTable)==1)
+    {
+        printf("\n\nThere are 0 processus on the table\n");
+        exit(-1);
+    }
+
     srand(time(NULL));
     int file;
 
@@ -257,17 +264,18 @@ int priorityArray(AllocationTable allocationTable)
         file = 10;
     }
 
-    printf("\n=============\n");
-    printf("\ninitial file: %d\n\n", file);
+    
+    //printf("\ninitial file: %d\n\n", file);
 
     int sucess = 0;
     int initialFile = file;
+    int initialFile2 = file;
     for (initialFile; initialFile < 11; ++initialFile)
     {
-        if(nbProcessusPriority(allocationTable,initialFile)==0)
+        if(nbProcessusPriority(allocationTable,file)==0)
         {
             file++;
-            printf("file++!\n");
+            //printf("file++!\n");
             if (file == 11)
             {
                 file = 1;
@@ -281,21 +289,29 @@ int priorityArray(AllocationTable allocationTable)
     }
     if(sucess == 0)
     {
-        for (int z=0; z < initialFile; ++z)
+        for (int z=file; z < initialFile2; ++z)
         {
-            if(nbProcessusPriority(allocationTable,z)==0)
+            if(nbProcessusPriority(allocationTable,z)==0 && sucess == 0)
             {
                 file++;
-                printf("file++!\n");
+                //printf("file++!\n");
+                if (file == 11)
+                {
+                    file = 1;
+                }
             }
             else{
+                sucess = 1;
                 break;
             }
         }
     }
+    if(nbProcessusPriority(allocationTable,0)!=0 && sucess == 0){
+        file = 0;
+    }
 
 
-    printf("\nfinal file: %d\n", file);
+    printf("\nFile: %d\n", file);
     return file;
 
 }
@@ -310,4 +326,366 @@ void checkingPercentage()
         printf("\nPercentage incorect, sum is: %d\n", sum);
         exit(-1);
     }
+}
+
+void algorithm(AllocationTable allocationTable)
+{
+
+    int quantumDate = 0;
+
+    while(1)
+    {
+        printf("\n=============");
+        printf("\nquantumDate: %d", quantumDate);
+        int file = priorityArray(allocationTable);
+
+        switch(file)
+        {
+            case 0:
+
+                allocationTable.priority0[0].execTime--;
+                if (allocationTable.priority0[0].execTime > 0)
+                {
+                    allocationTable.priority0[0].priority++;
+                    allocationTable = addElement(allocationTable.priority0[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority0[0].pid
+                        , allocationTable.priority0[0].priority, allocationTable.priority0[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority0[i] = allocationTable.priority0[i+1]; 
+                    }
+                    allocationTable.priority0[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority0[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority0[i] = allocationTable.priority0[i+1];  
+                    }
+                    allocationTable.priority0[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 1:
+
+                allocationTable.priority1[0].execTime--;
+                if (allocationTable.priority1[0].execTime > 0)
+                {
+                    allocationTable.priority1[0].priority++;
+                    allocationTable = addElement(allocationTable.priority1[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority1[0].pid
+                        , allocationTable.priority1[0].priority, allocationTable.priority1[0].execTime);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority1[i] = allocationTable.priority1[i+1];  
+                    }
+                    allocationTable.priority1[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority1[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority1[i] = allocationTable.priority1[i+1];   
+                    }
+                    allocationTable.priority1[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 2:
+
+                allocationTable.priority2[0].execTime--;
+                if (allocationTable.priority2[0].execTime > 0)
+                {
+                    allocationTable.priority2[0].priority++;
+                    allocationTable = addElement(allocationTable.priority2[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority2[0].pid
+                        , allocationTable.priority2[0].priority, allocationTable.priority2[0].execTime);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority2[i] = allocationTable.priority2[i+1]; 
+                    }
+                    allocationTable.priority2[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority2[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority2[i] = allocationTable.priority2[i+1];  
+                    }
+                    allocationTable.priority2[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 3:
+
+                allocationTable.priority3[0].execTime--;
+                if (allocationTable.priority3[0].execTime > 0)
+                {
+                    allocationTable.priority3[0].priority++;
+                    allocationTable = addElement(allocationTable.priority3[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority3[0].pid
+                        , allocationTable.priority3[0].priority, allocationTable.priority3[0].execTime);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority3[i] = allocationTable.priority3[i+1]; 
+                    }
+                    allocationTable.priority3[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority3[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority3[i] = allocationTable.priority3[i+1];  
+                    }
+                    allocationTable.priority3[SIZEARRAY-1] = resetElement();
+                }
+                break;
+        
+            case 4:
+
+                allocationTable.priority4[0].execTime--;
+                if (allocationTable.priority4[0].execTime > 0)
+                {
+                    allocationTable.priority4[0].priority++;
+                    allocationTable = addElement(allocationTable.priority4[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority4[0].pid
+                        ,allocationTable.priority4[0].priority, allocationTable.priority4[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority4[i] = allocationTable.priority4[i+1];
+                    }
+                    allocationTable.priority4[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority4[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority4[i] = allocationTable.priority4[i+1];
+                    }
+                    allocationTable.priority4[SIZEARRAY-1] = resetElement();
+                }
+                break;
+            
+            case 5:
+
+                allocationTable.priority5[0].execTime--;
+                if (allocationTable.priority5[0].execTime > 0)
+                {
+                    allocationTable.priority5[0].priority++;
+                    allocationTable = addElement(allocationTable.priority5[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority5[0].pid
+                        ,allocationTable.priority5[0].priority, allocationTable.priority5[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority5[i] = allocationTable.priority5[i+1]; 
+                    }
+                    allocationTable.priority5[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority5[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority5[i] = allocationTable.priority5[i+1];  
+                    }
+                    allocationTable.priority5[SIZEARRAY-1] = resetElement();
+                }
+                break;
+            
+            case 6:
+
+                allocationTable.priority6[0].execTime--;
+                if (allocationTable.priority6[0].execTime > 0)
+                {
+                    allocationTable.priority6[0].priority++;
+                    allocationTable = addElement(allocationTable.priority6[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority6[0].pid
+                        ,allocationTable.priority6[0].priority, allocationTable.priority6[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority6[i] = allocationTable.priority6[i+1];  
+                    }
+                    allocationTable.priority6[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority6[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority6[i] = allocationTable.priority6[i+1]; 
+                    }
+                    allocationTable.priority6[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 7:
+
+                allocationTable.priority7[0].execTime--;
+                if (allocationTable.priority7[0].execTime > 0)
+                {
+                    allocationTable.priority7[0].priority++;
+                    allocationTable = addElement(allocationTable.priority7[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority7[0].pid
+                        ,allocationTable.priority7[0].priority, allocationTable.priority7[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority7[i] = allocationTable.priority7[i+1];  
+                    }
+                    allocationTable.priority7[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority7[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority7[i] = allocationTable.priority7[i+1];  
+                    }
+                    allocationTable.priority7[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 8:
+
+                allocationTable.priority8[0].execTime--;
+                if (allocationTable.priority8[0].execTime > 0)
+                {
+                    allocationTable.priority8[0].priority++;
+                    allocationTable = addElement(allocationTable.priority8[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority8[0].pid
+                        ,allocationTable.priority8[0].priority, allocationTable.priority8[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority8[i] = allocationTable.priority8[i+1]; 
+                    }
+                    allocationTable.priority8[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority8[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority8[i] = allocationTable.priority8[i+1]; 
+                    }
+                    allocationTable.priority8[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 9:
+
+                allocationTable.priority9[0].execTime--;
+                if (allocationTable.priority9[0].execTime > 0)
+                {
+                    allocationTable.priority9[0].priority++;
+                    allocationTable = addElement(allocationTable.priority9[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority9[0].pid
+                        ,allocationTable.priority9[0].priority, allocationTable.priority9[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority9[i] = allocationTable.priority9[i+1];  
+                    }
+                    allocationTable.priority9[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority9[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority9[i] = allocationTable.priority9[i+1];  
+                    }
+                    allocationTable.priority9[SIZEARRAY-1] = resetElement();
+                }
+                break;
+
+            case 10:
+
+                allocationTable.priority10[0].execTime--;
+                if (allocationTable.priority10[0].execTime > 0)
+                {
+                    allocationTable.priority10[0].priority = 0;
+                    allocationTable = addElement(allocationTable.priority10[0], allocationTable);
+                    printf("The processus %d is now on priority %d with %d quantum left\n", allocationTable.priority10[0].pid
+                        ,allocationTable.priority10[0].priority, allocationTable.priority10[0].execTime);
+                    printf("=============\n");
+                    
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority10[i] = allocationTable.priority10[i+1]; 
+                    }
+                    allocationTable.priority10[SIZEARRAY-1] = resetElement();
+                }
+                else 
+                {
+                    printf("The processus %d ended\n", allocationTable.priority10[0].pid);
+                    printf("=============\n");
+
+                    for (int i = 0; i < SIZEARRAY-1; ++i)
+                    {
+                        allocationTable.priority10[i] = allocationTable.priority10[i+1];  
+                    }
+                    allocationTable.priority10[SIZEARRAY-1] = resetElement();
+                }
+                break;
+        }
+
+        quantumDate++;
+        sleep(QUANTUM);
+    }
+}
+
+int isTableEmpty(AllocationTable allocationTable)
+{
+
+    int nbElement = 0;
+    for (int i = 0; i < 11; ++i)
+    {
+        nbElement += nbProcessusPriority(allocationTable,i);
+    }
+    printf("\nnbElement: %d\n", nbElement);
+    return nbElement == 0;
+
 }
