@@ -1,8 +1,12 @@
 #ifndef TABLEALLOC_H_INCLUDED
 
 #define TABLEALLOC_H_INCLUDED
+#include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <time.h>
 
 #include "allocationTable.h"
 #include "processus.h"

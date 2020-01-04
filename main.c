@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
+#include <sys/shm.h>
 
 #include "share.h"
 #include "signal.h"
@@ -13,18 +14,11 @@ int main(int argc, char const *argv[])
 
     checkingPercentage();
     initSignals();
-
     
-
     AllocationTable allocationTable = initAlloc(allocationTable);
     allocationTable = createProcess(allocationTable);
 
-
     algorithm(allocationTable);
-    
-
-    
-
 
     /*           // TEST PRIORITY ELEMENTS 
     for (int i = 0; i < 11; ++i)
