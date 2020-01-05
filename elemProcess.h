@@ -7,6 +7,7 @@
 typedef struct ElemProcess
 {
     int priority;
+    int quantumDate;
     int execTime;
     pid_t pid;
 } ElemProcess;
