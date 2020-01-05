@@ -40,7 +40,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
 {
 	int boolean = 1;
 
-	//printf("priority: %d\n", elementTest.priority);
+	printf("priority: %d\n", elementTest.priority);
     switch(elementTest.priority)
     {
         case 0:
@@ -48,7 +48,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,0)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 0 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -67,7 +67,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,1)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 1 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -86,7 +86,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,2)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 2 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -106,7 +106,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,3)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 3 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -125,7 +125,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,4)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 4 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -144,7 +144,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,5)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 5 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -163,7 +163,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,6)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 6 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -182,7 +182,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,7)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 7 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -201,7 +201,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,8)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 8 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -220,7 +220,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,9)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 9 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
@@ -239,7 +239,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
             {
                 if((nbProcessusPriority(allocationTable,10)+1) > SIZEARRAY)
                 {
-                    printf("\nPriority array %d is full\n", i);
+                    printf("\nPriority array 10 is full\n");
                     printf("The processus is ignored\n");
                     break;
                 }
