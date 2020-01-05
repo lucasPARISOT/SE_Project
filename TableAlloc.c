@@ -3,7 +3,7 @@
 AllocationTable initAlloc(AllocationTable allocationTable)
 {
 
-    // Init the entire struct to 0.
+    // Init the entire struct to -1.
     memset(&allocationTable, -1, sizeof(AllocationTable));
 
     // Init percentage
@@ -330,6 +330,13 @@ void checkingPercentage()
 
 void algorithm(AllocationTable allocationTable)
 {
+
+    if(isTableEmpty(allocationTable)==1)
+    {
+        printf("\n\nThere are 0 processus on the table\n");
+        exit(-1);
+    }
+    
     int quantumDate = 0;
     pid_t pid;
 
