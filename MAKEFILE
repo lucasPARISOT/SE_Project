@@ -3,3 +3,4 @@ gcc -c Signal.c
 gcc -c TableAlloc.c 
 gcc -c Processus.c
 gcc -o exec main.o Signal.o TableAlloc.o Processus.o
+rm -f *.o
