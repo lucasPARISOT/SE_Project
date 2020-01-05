@@ -40,7 +40,7 @@ AllocationTable addElement(ElemProcess elementTest,AllocationTable allocationTab
 {
 	int boolean = 1;
 
-	printf("priority: %d\n", elementTest.priority);
+	//printf("priority: %d\n", elementTest.priority);
     switch(elementTest.priority)
     {
         case 0:
